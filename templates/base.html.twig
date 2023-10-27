@@ -1,21 +1,43 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {% block stylesheets %}
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
 
-        {% endblock %}
+    <!-- Inclure le script de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-        {% block javascripts %}
+    <!-- Inclure le lien vers votre fichier CSS si nécessaire -->
+    <link rel="stylesheet" href="{{ asset('build/styles.css') }}">
 
-        {% endblock %}
-    </head>
-    <body>
-    <div id="container">
-        {% block body %}{% endblock %}
-    </div>
 
-    </body>
+    {% block stylesheets %}
+
+    {% endblock %}
+
+    {% block javascripts %}
+
+    {% endblock %}
+</head>
+<body>
+<div id="container" class="mx-auto p-4">
+    <header>
+        <div class="bg-purple-700 text-white flex justify-between">
+            <div class="text-5xl font-bold">
+                <a href="{{ path('app_home') }}">Ludothèque</a>
+            </div>
+            <div>
+                {% if app.user %}
+                    <a href="{{ path('logout') }}" class="btn btn-secondary">Se déconnecter</a>
+                {% else %}
+                    <a href="{{ path('login') }}" class="btn btn-primary">Se connecter</a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+    {% block body %}{% endblock %}
+</div>
+
+
+</body>
 </html>

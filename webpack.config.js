@@ -14,6 +14,9 @@ Encore
     // only needed for CDN's or subdirectory deploy
     //.setManifestKeyPrefix('build/')
 
+    .addStyleEntry('app2', './assets/styles/app.scss')
+    .enablePostCssLoader()
+
     /*
      * ENTRY CONFIG
      *
