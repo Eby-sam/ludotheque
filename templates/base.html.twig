@@ -28,7 +28,7 @@
             </div>
             <div>
                 {% if app.user %}
-                    <a href="{{ path('logout') }}" class="btn btn-secondary">Se déconnecter</a>
+                    <a href="{{ path('app_logout') }}" class="btn btn-secondary">Se déconnecter</a>
                 {% else %}
                     <a href="{{ path('login') }}" class="btn btn-primary">Se connecter</a>
                 {% endif %}
